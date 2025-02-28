@@ -1,0 +1,44 @@
+﻿@using Exam1.Model
+@model Login
+
+@if (TempData["Error"] != null)
+{
+	<script type="text/javascript">
+		alert("@TempData["Error"]");
+	</script>
+}
+
+@if(TempData["Success"]!=null)
+{
+	<script type="text/javascript">
+		alert("@TempData["Success"]");
+	</script>
+}
+<h2>Welcome This Is A Login Page</h2>
+
+
+<form asp-action="SingIN" asp-controller="UserController1" method="post" enctype="multipart/form-data">
+
+	<div>
+		<label>email</label>
+		<input type="email" name="email" />
+		@* @* <span asp-validation-for="email" class="text-danger"></span> *@
+
+	</div></br>
+
+
+	<div>
+		<label>password</label>
+		<input type="password" name="password" />
+		@* <span asp-validation-for="password" class="text-danger"></span> *@
+
+	</div></br>
+
+	
+	<button type="submit" class="btn btn-secondary"> Login</button>
+	<p class="mt-3">
+		Don't have an account?
+		<a asp-action="RegisterM" asp-controller="UserController1">Create an Account</a>
+	</p>
+
+</form> 

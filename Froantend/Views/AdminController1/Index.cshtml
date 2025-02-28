@@ -1,0 +1,36 @@
+﻿@using Exam1.Model
+@model List<Produ>
+
+<h2>Welcome Admin</h2>
+<a class="btn btn-primary mb-3" asp-action="InsertAd">Add Product</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Available Stock</th>
+            <th>Current Stock</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.pname</td>
+                <td>@product.cid</td>
+                <td>@product.astock</td>
+                <td>@product.istock</td>
+                <td>
+                    <img src="@product.pimage" alt="Product Image" width="50" height="50" />
+                </td>
+                <td>
+                    <a asp-action="UpdateProduct" asp-route-id="@product.pid" class="btn btn-dark">Update</a>
+                    <a asp-action="DeleteProduct" asp-route-id="@product.pid" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
